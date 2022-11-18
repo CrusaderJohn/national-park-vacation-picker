@@ -1,27 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Provincial Park Vacation Picker</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>National Park Vacation Picker</title>
-</head>
-
-<body>
-    <header>
-
-    </header>
-
+  <body>
     <main>
+      <div class="w3-container w3-teal w3-display-middle w3-center">
+        <h1 style="text-shadow: 1px 1px 0 #444">
+          <b>Provincial Park Vacation Picker!</b>
+        </h1>
+        <h2 style="text-shadow: 1px 1px 0 #444">
+          Select your preferred Provincial Park in Ontario from the list and our
+          application will show you the best possible 7 day period to go there
+          for a vacation! Not only that, we will show you how to get there with
+          a planned route and the estimated time it takes to get there!
+        </h2>
+      </div>
 
+      <div class="w3-dropdown-click">
+        <button
+          onclick="displayLinks()"
+          class="w3-button w3-teal w3-hover-green"
+        >
+          Click Here to see our list of Provincial Parks!
+        </button>
+      </div>
+      <div
+        id="selections"
+        class="w3-dropdown-content w3-bar-block w3-border w3-green w3-hover-teal"
+      >
+        <a href="#" class="w3-bar-item w3-button">Algonquin Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Killarney Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button"
+          >Sleeping Giant Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Lake Superior Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Kakabeka Falls Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Silent Lake Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button">Hardy Lake Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Komoka Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Mississagi Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Bon Echo Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button"
+          >Massassauga Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Lady-Evelyn Smoothwater Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Kawartha Highlands Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >French River Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button"
+          >Spanish River Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button">Missinaibi Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button"
+          >Woodland Caribou Provincial Park</a
+        >
+        <a href="#" class="w3-bar-item w3-button">Quetico Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Wabakimi Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Sandbanks Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button">Pinery Provincial Park</a>
+        <a href="#" class="w3-bar-item w3-button"
+          >Wasaga Beach Provincial Park</a
+        >
+      </div>
+      <footer class="w3-container w3-display-bottommiddle w3-center">
+        <p class="w3-text-teal" style="text-shadow: 1px 1px 0 rgb(0, 0, 0)">
+          <b>Made with ❤️ by John, Robert, Wei, and Luka</b>
+        </p>
+      </footer>
     </main>
 
-    <footer>
-
-    </footer>
-
-    <script src="./assets/js/script.js"></script>
-</body>
+    <script defer src="./assets/js/script.js"></script>
+  </body>
 </html>
