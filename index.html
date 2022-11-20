@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <title>National Park Vacation Picker</title>
-</head>
+  </head>
 
-<body>
-    <header>
-
-    </header>
+  <body>
+    <header></header>
 
     <main>
-
+      <div id="input-panal">
+        <div>
+          <div>
+            <input type="text" id="origin" placeholder="Enter address ... " />
+          </div>
+        </div>
+        <div>
+          <div>
+            <select id="park">
+              <option value="Algonquin Provincial Park">
+                Algonquin Provincial Park
+              </option>
+              <option value="Killarney Provincial Park">
+                Killarney Provincial Park
+              </option>
+              <option value="Sleeping Giant Provincial Park">
+                Sleeping Giant Provincial Park
+              </option>
+              <option value="Lake Superior Provincial Park">
+                Lake Superior Provincial Park
+              </option>
+            </select>
+          </div>
+        </div>
+        <b>Mode of travel</b>
+        <select id="mode">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+        <button id="searchBtn">search</button>
+      </div>
+      <div id="map"></div>
+      <div id="output">
+        <div id="distance"></div>
+        <div id="time"></div>
+      </div>
     </main>
 
-    <footer>
+    <footer></footer>
 
-    </footer>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCHMe41X8w299wd4xk-pCvmL5vWUWtAs&libraries=places"
+    ></script>
 
-    <script src="./assets/js/script.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
+  </body>
 </html>
