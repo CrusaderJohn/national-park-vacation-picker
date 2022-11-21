@@ -40,6 +40,7 @@ function calcRoute(directionsRenderer, directionsService) {
     travelMode: google.maps.TravelMode[$(`#mode`).val()],
     unitSystem: google.maps.UnitSystem.METRIC, //can create an option for user
   };
+
   //pass request to the route method
   directionsService.route(request, function (result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
@@ -47,11 +48,16 @@ function calcRoute(directionsRenderer, directionsService) {
       var distance = $(`<p>`).append(
         `Distance: ` + result.routes[0].legs[0].distance.text
       );
-      var travelTime = $(`<p>`).append(
-        `Travel time: ` + result.routes[0].legs[0].duration.text
+      var duration = $(`<p>`).append(
+        `Duration: ` + result.routes[0].legs[0].duration.text
       );
+      console.log(result);
+      $(`#distance`).empty();
+      $(`#time`).empty();
+      $(`#error`).empty();
+
       $(`#distance`).append(distance);
-      $(`#time`).append(travelTime);
+      $(`#time`).append(duration);
 
       //display route on map
       directionsRenderer.setDirections(result);
@@ -65,7 +71,11 @@ function calcRoute(directionsRenderer, directionsService) {
       //Show error
       //could not retrieve the route
       var noResult = $(`<p>`).append(`Directions request returned no results!`);
-      $(`#output`).append(noResult);
+      $(`#distance`).empty();
+      $(`#time`).empty();
+      $(`#error`).empty();
+
+      $(`#error`).append(noResult);
     }
   });
 }
