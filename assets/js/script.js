@@ -33,13 +33,14 @@ $(`#searchBtn`).on(`click`, () =>
 
 //create a function that calculate the distance and render on the map
 function calcRoute(directionsRenderer, directionsService) {
-  console.log(`click`);
-  var request = {
-    origin: $(`#origin`).val(),
-    destination: $(`#park`).val(), //change it to the user picked value for park
-    travelMode: google.maps.TravelMode[$(`#mode`).val()],
-    unitSystem: google.maps.UnitSystem.METRIC, //can create an option for user
-  };
+    console.log(`click`);
+    var request = {
+        origin: $(`#origin`).val(),
+        destination: $(`#park`).val(), //change it to the user picked value for park
+        travelMode: google.maps.TravelMode[$(`#mode`).val()],
+        unitSystem: google.maps.UnitSystem.METRIC, //can create an option for user
+    };
+}
 
   //pass request to the route method
   directionsService.route(request, function (result, status) {
