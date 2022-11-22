@@ -33,14 +33,13 @@ $(`#searchBtn`).on(`click`, () =>
 
 //create a function that calculate the distance and render on the map
 function calcRoute(directionsRenderer, directionsService) {
-    console.log(`click`);
-    var request = {
-        origin: $(`#origin`).val(),
-        destination: $(`#park`).val(), //change it to the user picked value for park
-        travelMode: google.maps.TravelMode[$(`#mode`).val()],
-        unitSystem: google.maps.UnitSystem.METRIC, //can create an option for user
-    };
-}
+  console.log(`click`);
+  var request = {
+    origin: $(`#origin`).val(),
+    destination: $(`#park`).val(), //change it to the user picked value for park
+    travelMode: google.maps.TravelMode[$(`#mode`).val()],
+    unitSystem: google.maps.UnitSystem.METRIC, //can create an option for user
+  };
 
   //pass request to the route method
   directionsService.route(request, function (result, status) {
@@ -79,6 +78,15 @@ function calcRoute(directionsRenderer, directionsService) {
       $(`#error`).append(noResult);
     }
   });
+}
+//assign eventlistener for drop down items
+$(`#park-selection-btn`).on(`click`, () => {
+  console.log(`click`);
+});
+
+// function displayResultPage() {
+//   console.log(`click`);
+// }
 
 function displayLinks() {
   var x = document.getElementById("selections");
@@ -89,41 +97,45 @@ function displayLinks() {
   }
 }
 
-function weatherAPI()
-{
-    let weatherURL = "https://api.weather.gc.ca/collections/climate-daily/items";
-    let formatURL = "?f=json";
-    let year = "&LOCAL_YEAR=2020";
-    let station = "&CLIMATE_IDENTIFIER=6115811";
-    let finalURL = "";
+function weatherAPI() {
+  let weatherURL = "https://api.weather.gc.ca/collections/climate-daily/items";
+  let formatURL = "?f=json";
+  let year = "&LOCAL_YEAR=2020";
+  let station = "&CLIMATE_IDENTIFIER=6115811";
+  let finalURL = "";
 
-    if (station)
-    {
-        finalURL = weatherURL + formatURL + year + station;
-    }
+  if (station) {
+    finalURL = weatherURL + formatURL + year + station;
+  }
 
-    console.log(finalURL);
+  console.log(finalURL);
 
-    fetch(finalURL)
-        .then(function (response)
-        {
-            if (!response.ok)
-            {
-                throw response.json();
-            }
-            return response.json();
-        })
-        .then(function (jsonResult)
-        {
-            console.log(jsonResult.features.length);
-            console.log(`Temp: ${jsonResult.features[jsonResult.features.length - 1].properties.MEAN_TEMPERATURE}`);
-            console.log(`Rain: ${jsonResult.features[jsonResult.features.length - 1].properties.TOTAL_PRECIPITATION}`);
-            console.log(jsonResult);
-        })
-        .catch(function (error)
-        {
-            console.error(error);
-        });
+  fetch(finalURL)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+      return response.json();
+    })
+    .then(function (jsonResult) {
+      console.log(jsonResult.features.length);
+      console.log(
+        `Temp: ${
+          jsonResult.features[jsonResult.features.length - 1].properties
+            .MEAN_TEMPERATURE
+        }`
+      );
+      console.log(
+        `Rain: ${
+          jsonResult.features[jsonResult.features.length - 1].properties
+            .TOTAL_PRECIPITATION
+        }`
+      );
+      console.log(jsonResult);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
 
 weatherAPI();
