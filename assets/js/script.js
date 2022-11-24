@@ -16,15 +16,11 @@ function weather()
     let year = "&LOCAL_YEAR=2021";
     let station = "&CLIMATE_IDENTIFIER=6115811";
     let finalURL = "";
-    let hottestDay = -200;
-    let weekSum = 0;
-    let weekAvg = 0;
+
+    finalURL = weatherURL + formatURL + year + station;
 
     class Day {
-        constructor(year, month, day, temp, rain, longDay) {
-            this.year = year;
-            this.month = month;
-            this.day = day;
+        constructor(temp, rain, longDay) {
             this.temp = temp;
             this.rain = rain;
             this.longDay = longDay;
@@ -38,11 +34,12 @@ function weather()
             this.hotWeekDay = 0;
             this.dryWeek = -200;
             this.dryWeekDay = 0;
+            this.weekSum = 0;
+            this.weekAvg = 0;
         }
     }
 
-    finalURL = weatherURL + formatURL + year + station;
-    let newYear = new Year(2021);
+    let newYear = new Year();
 
     fetch(finalURL)
         .then(function (response)
@@ -51,16 +48,13 @@ function weather()
             {
                 throw response.json();
             }
+
             return response.json();
         })
         .then(function (jsonResult)
         {
             for (let i = 0; i < jsonResult.features.length; i++) {
-                // console.log(newYear);
                 newYear.days.push(new Day(
-                    jsonResult.features[i].properties.LOCAL_YEAR,
-                    jsonResult.features[i].properties.LOCAL_MONTH,
-                    jsonResult.features[i].properties.LOCAL_DAY,
                     jsonResult.features[i].properties.MEAN_TEMPERATURE,
                     jsonResult.features[i].properties.TOTAL_PRECIPITATION,
                     jsonResult.features[i].properties.LOCAL_DATE));
@@ -76,31 +70,29 @@ function weather()
 
             for (let i = 0; i < jsonResult.features.length - 7; i++)
             {
-                weekSum = newYear.days[i].temp + newYear.days[i+1].temp + newYear.days[i+2].temp +
+                newYear.weekSum = newYear.days[i].temp + newYear.days[i+1].temp + newYear.days[i+2].temp +
                     newYear.days[i+3].temp + newYear.days[i+4].temp + newYear.days[i+5].temp + newYear.days[i+6].temp;
-                weekAvg = weekSum / 7;
-                if (weekAvg > newYear.hotWeekTemp)
+                newYear.weekAvg = newYear.weekSum / 7;
+                if (newYear.weekAvg > newYear.hotWeekTemp)
                 {
-                    newYear.hotWeekTemp = weekAvg;
+                    newYear.hotWeekTemp = newYear.weekAvg;
                     newYear.hotWeekDay = newYear.days[i].longDay;
                 }
             }
 
             for (let i = 0; i < jsonResult.features.length - 7; i++)
             {
-                weekSum = newYear.days[i].rain + newYear.days[i+1].rain + newYear.days[i+2].rain +
+                newYear.weekSum = newYear.days[i].rain + newYear.days[i+1].rain + newYear.days[i+2].rain +
                     newYear.days[i+3].rain + newYear.days[i+4].rain + newYear.days[i+5].rain + newYear.days[i+6].rain;
-                weekAvg = weekSum / 7;
-                if (weekAvg > newYear.dryWeek)
+                newYear.weekAvg = newYear.weekSum / 7;
+                if (newYear.weekAvg > newYear.dryWeek)
                 {
-                    newYear.dryWeek = weekAvg;
+                    newYear.dryWeek = newYear.weekAvg;
                     newYear.dryWeekDay = newYear.days[i].longDay;
                 }
             }
-
             console.log(newYear.hotWeekDay);
             console.log(newYear.dryWeekDay);
-
         })
         .catch(function (error)
         {
