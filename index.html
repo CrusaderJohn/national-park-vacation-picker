@@ -1,98 +1,225 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"/>
+    <title>Provincial Park Vacation Picker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-    <title>Provincial Park Vacation Picker</title>
   </head>
 
   <body>
     <main>
-      <div class="w3-container w3-teal w3-display-middle w3-center">
-        <h1 style="text-shadow: 1px 1px 0 #444">
-          <b>Provincial Park Vacation Picker!</b>
-        </h1>
-        <h2 style="text-shadow: 1px 1px 0 #444">
-          Select your preferred Provincial Park in Ontario from the list and our
-          application will show you the best possible 7 day period to go there
-          for a vacation! Not only that, we will show you how to get there with
-          a planned route and the estimated time it takes to get there!
-        </h2>
+      <div class="landing-page">
+        <div class="w3-container w3-teal w3-display-middle w3-center">
+          <h1 style="text-shadow: 1px 1px 0 #444">
+            <b>Provincial Park Vacation Picker!</b>
+          </h1>
+          <h2 style="text-shadow: 1px 1px 0 #444">
+            Select your preferred Provincial Park in Ontario from the list and
+            our application will show you the best possible 7 day period to go
+            there for a vacation! Not only that, we will show you how to get
+            there with a planned route and the estimated time it takes to get
+            there!
+          </h2>
+        </div>
+
+        <div class="w3-dropdown-click">
+          <button
+            onclick="displayLinks()"
+            class="w3-button w3-teal w3-hover-green"
+          >
+            Click Here to see our list of Provincial Parks!
+          </button>
+        </div>
+        <div
+          id="selections"
+          class="w3-dropdown-content w3-bar-block w3-border w3-green w3-hover-teal"
+        >
+          <button
+            id="park-selection-btn0"
+            class="w3-button w3-bar-item"
+            value="Algonquin Provincial Park"
+          >
+            Algonquin Provincial Park
+          </button>
+          <a
+            id="park-selection-btn1"
+            class="w3-bar-item w3-button"
+            value="Killarney Provincial Park"
+          >
+            Killarney Provincial Park
+          </a>
+          <a
+            id="park-selection-btn2"
+            class="w3-bar-item w3-button"
+            value="Sleeping Giant Provincial Park"
+            >Sleeping Giant Provincial Park</a
+          >
+          <a
+            id="park-selection-btn3"
+            class="w3-bar-item w3-button"
+            value="Lake Superior Provincial Park"
+            >Lake Superior Provincial Park</a
+          >
+          <a
+            id="park-selection-btn4"
+            class="w3-bar-item w3-button"
+            value="Kakabeka Falls Provincial Park"
+            >Kakabeka Falls Provincial Park</a
+          >
+          <a
+            id="park-selection-btn5"
+            class="w3-bar-item w3-button"
+            value="Silent Lake Provincial Park"
+            >Silent Lake Provincial Park</a
+          >
+          <a
+            id="park-selection-btn6"
+            class="w3-bar-item w3-button"
+            value="Hardy Lake Provincial Park"
+            >Hardy Lake Provincial Park</a
+          >
+          <a
+            id="park-selection-btn7"
+            class="w3-bar-item w3-button"
+            value="Komoka Provincial Park"
+            >Komoka Provincial Park</a
+          >
+          <a
+            id="park-selection-btn8"
+            class="w3-bar-item w3-button"
+            value="Mississagi Provincial Park"
+            >Mississagi Provincial Park</a
+          >
+          <a
+            id="park-selection-btn9"
+            class="w3-bar-item w3-button"
+            value="Bon Echo Provincial Park"
+            >Bon Echo Provincial Park</a
+          >
+          <a
+            id="park-selection-btn10"
+            class="w3-bar-item w3-button"
+            value="Massassauga Provincial Park"
+            >Massassauga Provincial Park</a
+          >
+          <a
+            id="park-selection-btn11"
+            class="w3-bar-item w3-button"
+            value="Lady-Evelyn Smoothwater Provincial Park"
+            >Lady-Evelyn Smoothwater Provincial Park</a
+          >
+          <a
+            id="park-selection-btn12"
+            class="w3-bar-item w3-button"
+            value="Kawartha Highlands Provincial Park"
+            >Kawartha Highlands Provincial Park</a
+          >
+          <a
+            id="park-selection-btn13"
+            class="w3-bar-item w3-button"
+            value="French River Provincial Park"
+            >French River Provincial Park</a
+          >
+          <a
+            id="park-selection-btn14"
+            class="w3-bar-item w3-button"
+            value="Spanish River Provincial Park"
+            >Spanish River Provincial Park</a
+          >
+          <a
+            id="park-selection-btn15"
+            class="w3-bar-item w3-button"
+            value="Missinaibi Provincial Park"
+            >Missinaibi Provincial Park</a
+          >
+          <a
+            id="park-selection-btn16"
+            class="w3-bar-item w3-button"
+            value="Woodland Caribou Provincial Park"
+            >Woodland Caribou Provincial Park</a
+          >
+          <a
+            id="park-selection-btn17"
+            class="w3-bar-item w3-button"
+            value="Quetico Provincial Park"
+            >Quetico Provincial Park</a
+          >
+          <a
+            id="park-selection-btn18"
+            class="w3-bar-item w3-button"
+            value="Wabakimi Provincial Park"
+            >Wabakimi Provincial Park</a
+          >
+          <a
+            id="park-selection-btn19"
+            class="w3-bar-item w3-button"
+            value="Sandbanks Provincial Park"
+            >Sandbanks Provincial Park</a
+          >
+          <a
+            id="park-selection-btn20"
+            class="w3-bar-item w3-button"
+            value="Pinery Provincial Park"
+            >Pinery Provincial Park</a
+          >
+          <a
+            id="park-selection-btn21"
+            class="w3-bar-item w3-button"
+            value="Wasaga Beach Provincial Park"
+            >Wasaga Beach Provincial Park</a
+          >
+        </div>
+      </div>
+      <div class="result-page hidden">
+        <div class="w3-quarter" id="history-bar">
+          <h2>Search History</h2>
+          <br />
+          <button id="clear-history-btn">Clear History</button>
+          <ul style="list-style: none" id="search-history"></ul>
+        </div>
+        <div class="w3-rest">
+          <div id="weather-result"></div>
+          <div id="google-map">
+            <h2>Get Direction</h2>
+            <div id="input-panel">
+              <input type="text" id="origin" placeholder="Enter address ... " />
+            </div>
+            <div id="mode-of-travel">
+              <b>Mode of travel</b>
+              <select id="mode">
+                <option value="DRIVING">Driving</option>
+                <option value="WALKING">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="TRANSIT">Transit</option>
+              </select>
+              <button id="searchBtn">search</button>
+            </div>
+          </div>
+          <div>
+            <div class="w3-twothird" id="map"></div>
+            <div class="w3-third" id="output">
+              <div id="distance"></div>
+              <div id="time"></div>
+              <div id="error"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="w3-dropdown-click">
-        <button
-          onclick="displayLinks()"
-          class="w3-button w3-teal w3-hover-green"
-        >
-          Click Here to see our list of Provincial Parks!
-        </button>
-      </div>
-      <div
-        id="selections"
-        class="w3-dropdown-content w3-bar-block w3-border w3-green w3-hover-teal"
-      >
-        <a href="#" class="w3-bar-item w3-button">Algonquin Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Killarney Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button"
-          >Sleeping Giant Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Lake Superior Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Kakabeka Falls Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Silent Lake Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button">Hardy Lake Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Komoka Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Mississagi Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Bon Echo Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button"
-          >Massassauga Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Lady-Evelyn Smoothwater Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Kawartha Highlands Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >French River Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button"
-          >Spanish River Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button">Missinaibi Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button"
-          >Woodland Caribou Provincial Park</a
-        >
-        <a href="#" class="w3-bar-item w3-button">Quetico Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Wabakimi Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Sandbanks Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button">Pinery Provincial Park</a>
-        <a href="#" class="w3-bar-item w3-button"
-          >Wasaga Beach Provincial Park</a
-        >
-      </div>
       <footer class="w3-container w3-display-bottommiddle w3-center">
         <p class="w3-text-teal" style="text-shadow: 1px 1px 0 rgb(0, 0, 0)">
           <b>Made with ❤️ by John, Robert, Wei, and Luka</b>
         </p>
       </footer>
     </main>
-
-        <script
+    <script
       async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHCHMe41X8w299wd4xk-pCvmL5vWUWtAs&libraries=places"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3mVzFq9Sx_381Emz1arBcg6QzxzPMQOs&libraries=places"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script type="module" src="./assets/js/script.js"></script> -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
