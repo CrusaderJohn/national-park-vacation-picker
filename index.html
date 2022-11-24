@@ -174,47 +174,38 @@
         </div>
       </div>
       <div class="result-page hidden">
-        <div id="history-bar">
+        <div class="w3-quarter" id="history-bar">
           <h2>Search History</h2>
+          <br />
+          <button id="clear-history-btn">Clear History</button>
           <ul style="list-style: none" id="search-history"></ul>
         </div>
-        <div id="weather-result"></div>
-        <div id="google-map">
-          <h2>Get Direction</h2>
-          <div id="input-panel">
-            <input type="text" id="origin" placeholder="Enter address ... " />
+        <div class="w3-rest">
+          <div id="weather-result"></div>
+          <div id="google-map">
+            <h2>Get Direction</h2>
+            <div id="input-panel">
+              <input type="text" id="origin" placeholder="Enter address ... " />
+            </div>
+            <div id="mode-of-travel">
+              <b>Mode of travel</b>
+              <select id="mode">
+                <option value="DRIVING">Driving</option>
+                <option value="WALKING">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="TRANSIT">Transit</option>
+              </select>
+              <button id="searchBtn">search</button>
+            </div>
           </div>
-          <div id="park-selection">
-            <select id="park">
-              <option value="Algonquin Provincial Park">
-                Algonquin Provincial Park
-              </option>
-              <option value="Killarney Provincial Park">
-                Killarney Provincial Park
-              </option>
-              <option value="Sleeping Giant Provincial Park">
-                Sleeping Giant Provincial Park
-              </option>
-              <option value="Lake Superior Provincial Park">
-                Lake Superior Provincial Park
-              </option>
-            </select>
+          <div>
+            <div class="w3-twothird" id="map"></div>
+            <div class="w3-third" id="output">
+              <div id="distance"></div>
+              <div id="time"></div>
+              <div id="error"></div>
+            </div>
           </div>
-          <div id="mode-of-travel">
-            <b>Mode of travel</b>
-            <select id="mode">
-              <option value="DRIVING">Driving</option>
-              <option value="WALKING">Walking</option>
-              <option value="BICYCLING">Bicycling</option>
-              <option value="TRANSIT">Transit</option>
-            </select>
-            <button id="searchBtn">search</button>
-          </div>
-        </div>
-        <div id="map"></div>
-        <div id="output">
-          <div id="distance"></div>
-          <div id="time"></div>
         </div>
       </div>
 
