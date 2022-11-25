@@ -9,7 +9,8 @@ $(function () {
       // console.log($(this)[0].getAttribute("value"));
       var selectedPark = $(this)[0].getAttribute("value");
       if (userSelection.includes(selectedPark)) {
-        return window.alert(`This park has been added to the search history`);
+        document.getElementById("modal-container").style.display = "block";
+        return;
       }
       $(`.landing-page`).addClass(`hidden`);
       $(`.result-page`).removeClass(`hidden`);
@@ -23,6 +24,13 @@ $(function () {
       );
     });
   }
+  $(`#search-history-btn`).on(`click`, function () {
+    $(`.landing-page`).addClass(`hidden`);
+    $(`.result-page`).removeClass(`hidden`);
+  });
+  $(`#landing-page-btn`).on(`click`, function () {
+    location.reload();
+  });
 
   //create a search history fot all the parks
   function searchHistory(selectedPark) {

@@ -10,7 +10,9 @@ body {
   width: 66%;
   /* The width is the width of the web page */
 }
-
+#output {
+  height: 50%;
+}
 .hidden {
   display: none;
 }
