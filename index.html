@@ -25,6 +25,18 @@
           </h2>
         </div>
 
+        <div id="modal-container" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span
+                onclick="document.getElementById('modal-container').style.display='none'"
+                class="w3-button w3-display-topright"
+                >&times;</span
+              >
+              <p>This park has been added in the search history</p>
+            </div>
+          </div>
+        </div>
         <div class="w3-dropdown-click">
           <button
             onclick="displayLinks()"
@@ -33,6 +45,13 @@
             Click Here to see our list of Provincial Parks!
           </button>
         </div>
+        <button
+          id="search-history-btn"
+          class="w3-button w3-teal w3-hover-green w3-display-topright"
+        >
+          Search History
+        </button>
+
         <div
           id="selections"
           class="w3-dropdown-content w3-bar-block w3-border w3-green w3-hover-teal"
@@ -184,7 +203,14 @@
           <div id="weather-result"></div>
           <div id="google-map">
             <h2>Get Direction</h2>
+            <button
+              id="landing-page-btn"
+              class="w3-button w3-teal w3-hover-green w3-display-topright"
+            >
+              Main page
+            </button>
             <div id="input-panel">
+              <label><b>Address</b></label>
               <input type="text" id="origin" placeholder="Enter address ... " />
             </div>
             <div id="mode-of-travel">
@@ -199,8 +225,11 @@
             </div>
           </div>
           <div>
-            <div class="w3-twothird" id="map"></div>
-            <div class="w3-third" id="output">
+            <div class="w3-twothird w3-round-xxlarge" id="map"></div>
+            <div
+              class="w3-third w3-card w3-green w3-round-xxlarge w3-center"
+              id="output"
+            >
               <div id="distance"></div>
               <div id="time"></div>
               <div id="error"></div>
@@ -211,7 +240,7 @@
 
       <footer class="w3-container w3-display-bottommiddle w3-center">
         <p class="w3-text-teal" style="text-shadow: 1px 1px 0 rgb(0, 0, 0)">
-          <b>Made with ❤️ by John, Robert, Wei, and Luka</b>
+          <b>Made with ❤️ by John, Robert, and Wei</b>
         </p>
       </footer>
     </main>
