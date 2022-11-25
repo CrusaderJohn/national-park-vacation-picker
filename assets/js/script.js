@@ -1,3 +1,4 @@
+//this function make sure the apis load after the html is loaded
 $(function () {
   var userSelection = JSON.parse(localStorage.getItem("selection")) || [];
 
@@ -24,10 +25,14 @@ $(function () {
       );
     });
   }
+
+  //event listener for search history btn on the main page
   $(`#search-history-btn`).on(`click`, function () {
     $(`.landing-page`).addClass(`hidden`);
     $(`.result-page`).removeClass(`hidden`);
   });
+
+  //event listener for return landing page on result page
   $(`#landing-page-btn`).on(`click`, function () {
     location.reload();
   });
@@ -82,6 +87,7 @@ $(function () {
     var btnRequest = $(this).text();
     console.log(btnRequest);
     calcRoute(directionsRenderer, directionsService, btnRequest);
+    weatherAPI();
   }
 
   //create a function that calculate the distance and render on the map
