@@ -15,7 +15,7 @@ $(function () {
             }
             $(`.landing-page`).addClass(`hidden`);
             $(`.result-page`).removeClass(`hidden`);
-            weatherAPI();
+            weather();
             userSelection.push(selectedPark);
             localStorage.setItem(`selection`, JSON.stringify(userSelection));
             searchHistory(selectedPark);
@@ -87,7 +87,7 @@ $(function () {
         var btnRequest = $(this).text();
         console.log(btnRequest);
         calcRoute(directionsRenderer, directionsService, btnRequest);
-        weatherAPI();
+        weather();
     }
 
     //create a function that calculate the distance and render on the map
