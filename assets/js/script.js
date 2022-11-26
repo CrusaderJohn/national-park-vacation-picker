@@ -197,8 +197,10 @@ $(function () {
                 this.days = [];
                 this.hotWeekTemp = -200;
                 this.hotWeekDay = 0;
+                this.hotWeekDayIndex = 0;
                 this.dryWeek = -200;
                 this.dryWeekDay = 0;
+                this.dryWeekDayIndex = 0;
                 this.weekSum = 0;
                 this.weekAvg = 0;
             }
@@ -242,6 +244,7 @@ $(function () {
                     {
                         newYear.hotWeekTemp = newYear.weekAvg;
                         newYear.hotWeekDay = newYear.days[i].longDay;
+                        newYear.hotWeekDayIndex = i;
                     }
                 }
 
@@ -254,10 +257,17 @@ $(function () {
                     {
                         newYear.dryWeek = newYear.weekAvg;
                         newYear.dryWeekDay = newYear.days[i].longDay;
+                        newYear.dryWeekDayIndex = i;
                     }
                 }
                 console.log(newYear.hotWeekDay);
                 console.log(newYear.dryWeekDay);
+                let hourHolder = document.getElementById("weather-result");
+                for (let i = 0; i < 7; i++) {
+
+                }
+                // hourHolder.children[1].children[0].textContent = `${jsonResult.features[newYear.hotWeekDayIndex].properties.LOCAL_DATE} ${jsonResult.features[newYear.hotWeekDayIndex].properties.MEAN_TEMPERATURE} ${jsonResult.features[newYear.hotWeekDayIndex].properties.TOTAL_PRECIPITATION}`
+                // hourHolder.children[1].children[1].textContent = newYear.dryWeekDay
             })
             .catch(function (error)
             {
