@@ -15,7 +15,7 @@ $(function () {
             }
             $(`.landing-page`).addClass(`hidden`);
             $(`.result-page`).removeClass(`hidden`);
-            weather();
+            weather(selectedPark);
             userSelection.push(selectedPark);
             localStorage.setItem(`selection`, JSON.stringify(userSelection));
             searchHistory(selectedPark);
@@ -39,7 +39,7 @@ $(function () {
 
     //create a search history fot all the parks
     function searchHistory(selectedPark) {
-        console.log(selectedPark);
+        // console.log(selectedPark);
         var newList = $(`<li>`);
         var create = $("<button>");
 
@@ -85,9 +85,9 @@ $(function () {
     //create function for search history btn
     function searchHistoryBtn() {
         var btnRequest = $(this).text();
-        console.log(btnRequest);
+        // console.log(btnRequest);
         calcRoute(directionsRenderer, directionsService, btnRequest);
-        weather();
+        weather(btnRequest);
     }
 
     //create a function that calculate the distance and render on the map
@@ -97,7 +97,7 @@ $(function () {
         selectedPark,
         btnRequest
     ) {
-        console.log(`click`);
+        // console.log(`click`);
         var request = {
             origin: $(`#origin`).val(),
             destination: selectedPark || btnRequest, //change it to the user picked value for park
@@ -115,7 +115,7 @@ $(function () {
                 var duration = $(`<p>`).append(
                     `Duration: ` + result.routes[0].legs[0].duration.text
                 );
-                console.log(result);
+                // console.log(result);
                 $(`#distance`).empty();
                 $(`#time`).empty();
                 $(`#error`).empty();
@@ -147,17 +147,42 @@ $(function () {
     }
 
     //weather API
-    function weather()
+    function weather(parkName)
     {
-        console.log("test");
+        // Map needed instead of object because of the spaces in the park names
+        const parkCodes = new Map([
+            ["Algonquin Provincial Park", "6080192"],
+            ["Killarney Provincial Park", "605DJ25"],
+            ["Sleeping Giant Provincial Park", "6049443"],
+            ["Lake Superior Provincial Park", "6054425"],
+            ["Kakabeka Falls Provincial Park", "6043390"],
+            ["Silent Lake Provincial Park", "6163171"],
+            ["Hardy Lake Provincial Park", "6110607"],
+            ["Komoka Provincial Park", "6148122"],
+            ["Mississagi Provincial Park", "6065006"],
+            ["Bon Echo Provincial Park", "616I001"],
+            ["Massassauga Provincial Park", "6119M51"],
+            ["Lady-Evelyn Smoothwater Provincial Park", "6078282"],
+            ["Kawartha Highlands Provincial Park", "6166456"],
+            ["French River Provincial Park", "6065252"],
+            ["Spanish River Provincial Park", "6068153"],
+            ["Missinaibi Provincial Park", "6061365"],
+            ["Woodland Caribou Provincial Park", "6034076"],
+            ["Quetico Provincial Park", "6036907"],
+            ["Wabakimi Provincial Park", "6042719"],
+            ["Sandbanks Provincial Park", "6156559"],
+            ["Pinery Provincial Park", "6122847"],
+            ["Wasaga Beach Provincial Park", "6111792"]
+        ]);
+
+        // Gets park code from the park name
+        let parkCode = parkCodes.get(parkName);
 
         let weatherURL = "https://api.weather.gc.ca/collections/climate-daily/items";
         let formatURL = "?f=json";
         let year = "&LOCAL_YEAR=2021";
-        let station = "&CLIMATE_IDENTIFIER=6115811";
-        let finalURL = "";
-
-        finalURL = weatherURL + formatURL + year + station;
+        let station = "&CLIMATE_IDENTIFIER=" + parkCode;
+        let finalURL = weatherURL + formatURL + year + station;
 
         class Day {
             constructor(temp, rain, longDay) {
