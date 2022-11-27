@@ -6,7 +6,7 @@ This web application will allow for the prediction of which week will be the bes
 ## Here are screenshots showcasing the functionality and look of our webpage
 ![Screenshot of Landing Page](./assets/images/Screenshot%202022-11-26%20232131.png)
 ![Screenshot of Landing Page with parks list expanded](./assets/images/Screenshot%202022-11-26%20232440.png)
-![Screenshot of Results Page](./assets/images/Screenshot%202022-11-26%20232259.png)
+![Screenshot of Results Page](./assets/images/Screenshot%202022-11-27%20162935.png)
 
 ## Motivation for Development 
 We want to provide a way for people who only have a certain amount of time off in a year to know exactly when would be the best opportunity to go on vacation at one of the Provincial Parks on our list.
