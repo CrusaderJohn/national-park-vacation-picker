@@ -13,9 +13,7 @@ $(function () {
     // adding eventlistener for all the listed park
     for (let i = 0; i < 22; i++) {
         id = `#park-selection-btn` + i;
-        // console.log(id);
         $(id).on(`click`, function () {
-            // console.log($(this)[0].getAttribute("value"));
             var selectedPark = $(this)[0].getAttribute("value");
             if (userSelection.includes(selectedPark)) {
                 document.getElementById("modal-container").style.display = "block";
@@ -49,7 +47,6 @@ $(function () {
 
     //create a search history fot all the parks
     function searchHistory(selectedPark) {
-        // console.log(selectedPark);
         var newList = $(`<li>`);
         var create = $("<button>");
 
@@ -95,7 +92,6 @@ $(function () {
     //create function for search history btn
     function searchHistoryBtn() {
         var btnRequest = $(this).text();
-        // console.log(btnRequest);
         calcRoute(directionsRenderer, directionsService, btnRequest);
         weather(btnRequest);
     }
@@ -107,7 +103,6 @@ $(function () {
         selectedPark,
         btnRequest
     ) {
-        // console.log(`click`);
         var request = {
             origin: $(`#origin`).val(),
             destination: selectedPark || btnRequest, //change it to the user picked value for park
@@ -125,7 +120,7 @@ $(function () {
                 var duration = $(`<p>`).append(
                     `Duration: ` + result.routes[0].legs[0].duration.text
                 );
-                // console.log(result);
+
                 $(`#distance`).empty();
                 $(`#time`).empty();
                 $(`#error`).empty();
@@ -276,8 +271,6 @@ $(function () {
                         newYear.dryWeekDayIndex = i;
                     }
                 }
-                console.log(newYear.hotWeekDay);
-                console.log(newYear.dryWeekDay);
                 let hotWeek = document.getElementById("hotWeek");
                 let dryWeek = document.getElementById("dryWeek");
                 for (let i = 1; i < 8; i++) {
