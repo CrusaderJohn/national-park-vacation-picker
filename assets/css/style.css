@@ -2,17 +2,36 @@ body {
   background-image: url("https://free4kwallpapers.com/uploads/originals/2016/06/14/killarney-provincial-park-%E2%80%93-ontario-canada-4k-wallpaper.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
+
 /* Set the size of the div element that contains the map */
 #map {
-  height: 50%;
+  height: 41%;
   /* The height is 400 pixels */
   width: 66%;
   /* The width is the width of the web page */
+  margin-top: 10px;
+  margin-left: 10px;
 }
 #output {
-  height: 50%;
+  height: 41%;
 }
 .hidden {
   display: none;
 }
+
+#history-bar {
+  background-color: rgba(0, 255, 255, 0.493);
+  max-width: 20vw;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+#google-map {
+  background-color: rgba(0, 255, 255, 0.493);
+  max-width: 17vw;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+

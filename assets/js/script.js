@@ -38,11 +38,13 @@ $(function () {
     $(`#search-history-btn`).on(`click`, function () {
         $(`.landing-page`).addClass(`hidden`);
         $(`.result-page`).removeClass(`hidden`);
+        $(`footer`).addClass(`hidden`);
     });
 
     //event listener for return landing page on result page
     $(`#landing-page-btn`).on(`click`, function () {
         location.reload();
+        $(`footer`).removeClass(`hidden`);
     });
 
     //create a search history fot all the parks

@@ -196,7 +196,13 @@
         <div class="w3-quarter" id="history-bar">
           <h2>Search History</h2>
           <br />
-          <button id="clear-history-btn">Clear History</button>
+          <button class="w3-button w3-teal w3-hover-green" id="clear-history-btn">Clear History</button>
+          <button
+              id="landing-page-btn"
+              class="w3-button w3-teal w3-hover-green"
+            >
+              Back to Main Page
+            </button>
           <ul style="list-style: none" id="search-history"></ul>
         </div>
         <div class="w3-rest">
@@ -298,19 +304,13 @@
             </div>
           </div>
           <div id="google-map">
-            <h2>Get Direction</h2>
-            <button
-              id="landing-page-btn"
-              class="w3-button w3-teal w3-hover-green w3-display-topright"
-            >
-              Main page
-            </button>
+            <h2>Get Directions</h2>
             <div id="input-panel">
               <label><b>Address</b></label>
               <input type="text" id="origin" placeholder="Enter address ... " />
             </div>
             <div id="mode-of-travel">
-              <b>Mode of travel</b>
+              <b>Mode of Travel</b>
               <select id="mode">
                 <option value="DRIVING">Driving</option>
                 <option value="WALKING">Walking</option>
@@ -323,7 +323,7 @@
           <div>
             <div class="w3-twothird w3-round-xxlarge" id="map"></div>
             <div
-              class="w3-third w3-card w3-green w3-round-xxlarge w3-center"
+              class="w3-third w3-panel w3-pale-green w3-bottombar w3-border-green w3-border w3-round-xxlarge w3-center"
               id="output"
             >
               <div id="distance"></div>
@@ -334,9 +334,9 @@
         </div>
       </div>
 
-      <footer class="w3-container w3-display-bottommiddle w3-center">
+      <footer class="w3-container w3-display-bottommiddle w3-center" id="footer">
         <p class="w3-text-teal" style="text-shadow: 1px 1px 0 rgb(0, 0, 0)">
-          <b>Made with ❤️ by John, Robert, and Wei</b>
+          <b>Made with ❤️ by John, Robert, and Wei-Chi</b>
         </p>
       </footer>
     </main>
