@@ -7,7 +7,7 @@ body {
 
 /* Set the size of the div element that contains the map */
 #map {
-  height: 41%;
+  height: 40%;
   /* The height is 400 pixels */
   width: 66%;
   /* The width is the width of the web page */
@@ -15,7 +15,7 @@ body {
   margin-left: 10px;
 }
 #output {
-  height: 41%;
+  height: 40%;
 }
 .hidden {
   display: none;
