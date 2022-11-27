@@ -21,6 +21,7 @@ $(function () {
             }
             $(`.landing-page`).addClass(`hidden`);
             $(`.result-page`).removeClass(`hidden`);
+            $(`footer`).addClass(`hidden`);
             weather(selectedPark);
             userSelection.push(selectedPark);
             localStorage.setItem(`selection`, JSON.stringify(userSelection));
