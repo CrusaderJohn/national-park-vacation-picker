@@ -35,3 +35,16 @@ body {
   border-bottom-right-radius: 20px;
 }
 
+#distance,
+#time,
+#error p {
+  text-align: center;
+}
+
+#distance p {
+  margin-top: 180px;
+}
+
+#error p {
+  margin-top: 180px;
+}
