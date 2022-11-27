@@ -1,5 +1,13 @@
 //this function make sure the apis load after the html is loaded
 $(function () {
+    // adding Day.js customParseFormat plugin
+    const customParseFormat = window.dayjs_plugin_customParseFormat;
+    dayjs.extend(customParseFormat);
+
+    // adding Day.js advancedFormat plugin for the ordinals
+    const advancedFormat = window.dayjs_plugin_advancedFormat;
+    dayjs.extend(advancedFormat);
+
     var userSelection = JSON.parse(localStorage.getItem("selection")) || [];
 
     // adding eventlistener for all the listed park
@@ -198,7 +206,7 @@ $(function () {
                 this.hotWeekTemp = -200;
                 this.hotWeekDay = 0;
                 this.hotWeekDayIndex = 0;
-                this.dryWeek = -200;
+                this.dryWeek = 200;
                 this.dryWeekDay = 0;
                 this.dryWeekDayIndex = 0;
                 this.weekSum = 0;
@@ -253,7 +261,13 @@ $(function () {
                     newYear.weekSum = newYear.days[i].rain + newYear.days[i+1].rain + newYear.days[i+2].rain +
                         newYear.days[i+3].rain + newYear.days[i+4].rain + newYear.days[i+5].rain + newYear.days[i+6].rain;
                     newYear.weekAvg = newYear.weekSum / 7;
-                    if (newYear.weekAvg > newYear.dryWeek)
+                    if (newYear.weekAvg < newYear.dryWeek)
+                    {
+                        newYear.dryWeek = newYear.weekAvg;
+                        newYear.dryWeekDay = newYear.days[i].longDay;
+                        newYear.dryWeekDayIndex = i;
+                    }
+                    else if (newYear.weekAvg === newYear.dryWeek && newYear.days[newYear.dryWeekDayIndex].temp < newYear.days[i].temp)
                     {
                         newYear.dryWeek = newYear.weekAvg;
                         newYear.dryWeekDay = newYear.days[i].longDay;
@@ -262,12 +276,17 @@ $(function () {
                 }
                 console.log(newYear.hotWeekDay);
                 console.log(newYear.dryWeekDay);
-                let hourHolder = document.getElementById("weather-result");
-                for (let i = 0; i < 7; i++) {
+                let hotWeek = document.getElementById("hotWeek");
+                let dryWeek = document.getElementById("dryWeek");
+                for (let i = 1; i < 8; i++) {
+                    hotWeek.children[0].children[i].children[0].textContent = `${dayjs(newYear.days[newYear.hotWeekDayIndex + i - 1].longDay, 'YYYY-MM-DD HH:mm:ss').format("dddd, MMMM Do")}`;
+                    hotWeek.children[0].children[i].children[1].textContent = `${newYear.days[newYear.hotWeekDayIndex + i - 1].temp}°C`;
+                    hotWeek.children[0].children[i].children[2].textContent = `${newYear.days[newYear.hotWeekDayIndex + i - 1].rain} centimeters`;
 
+                    dryWeek.children[0].children[i].children[0].textContent = `${dayjs(newYear.days[newYear.dryWeekDayIndex + i - 1].longDay, 'YYYY-MM-DD HH:mm:ss').format("dddd, MMMM Do")}`;
+                    dryWeek.children[0].children[i].children[1].textContent = `${newYear.days[newYear.dryWeekDayIndex + i - 1].temp}°C`;
+                    dryWeek.children[0].children[i].children[2].textContent = `${newYear.days[newYear.dryWeekDayIndex + i - 1].rain} centimeters`;
                 }
-                // hourHolder.children[1].children[0].textContent = `${jsonResult.features[newYear.hotWeekDayIndex].properties.LOCAL_DATE} ${jsonResult.features[newYear.hotWeekDayIndex].properties.MEAN_TEMPERATURE} ${jsonResult.features[newYear.hotWeekDayIndex].properties.TOTAL_PRECIPITATION}`
-                // hourHolder.children[1].children[1].textContent = newYear.dryWeekDay
             })
             .catch(function (error)
             {
