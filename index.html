@@ -2,8 +2,11 @@
   <head>
     <title>Provincial Park Vacation Picker</title>
     <meta charset="UTF-8">
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"/>
+    <!-- W3Schools CSS framework -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <!-- Local Stylesheet -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
 
@@ -22,7 +25,7 @@
             there!
           </h2>
         </div>
-
+        <!-- Modal that pops up when a park has already been searched -->
         <div id="modal-container" class="w3-modal">
           <div class="w3-modal-content">
             <div class="w3-container">
@@ -35,6 +38,7 @@
             </div>
           </div>
         </div>
+        <!-- W3 function that makes links display on button click -->
         <div class="w3-dropdown-click">
           <button
             onclick="displayLinks()"
@@ -49,7 +53,7 @@
         >
           Search History
         </button>
-
+        <!-- All buttons for each park -->
         <div
           id="selections"
           class="w3-dropdown-content w3-bar-block w3-border w3-green w3-hover-teal"
@@ -190,6 +194,7 @@
           >
         </div>
       </div>
+      <!-- Transition in code from landing page to results page -->
       <div class="result-page hidden">
         <div class="w3-quarter" id="history-bar">
           <h2>Search History</h2>
@@ -204,6 +209,7 @@
           <ul style="list-style: none" id="search-history"></ul>
         </div>
         <div class="w3-rest">
+          <!-- Container that holds the charts for the weather results -->
           <div id="weather-result" class="w3-card-4 w3-blue w3-margin">
             <div class="w3-container w3-text-white w3-center">
               <h2>The Hottest and the Driest Weeks from Last Year</h2>
@@ -301,6 +307,7 @@
               </div>
             </div>
           </div>
+          <!-- Map section -->
           <div id="google-map">
             <h2>Get Directions</h2>
             <div id="input-panel">
@@ -319,6 +326,7 @@
             </div>
           </div>
           <div>
+            <!-- Output that shows distance and time to the right of the map -->
             <div class="w3-twothird w3-round-xxlarge" id="map"></div>
             <div
               class="w3-third w3-panel w3-pale-green w3-bottombar w3-border-green w3-border w3-round-xxlarge w3-center"
